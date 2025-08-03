@@ -1,0 +1,287 @@
+.processedImages {
+  background: var(--dark);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px var(--shadow);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  animation: fadeIn 0.6s ease-out;
+}
+
+.imagesHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.imagesHeader h3 {
+  color: var(--white);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+.downloadAllBtn {
+  background: var(--gradient-primary);
+  color: var(--white);
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+  font-family: 'Inter', sans-serif;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.downloadAllBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.6);
+}
+
+.downloadAllBtn:active {
+  transform: translateY(0);
+}
+
+.imagesGrid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 1fr;
+}
+
+.imageItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: fadeIn 0.6s ease-out;
+}
+
+.imageContainer {
+  position: relative;
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px var(--shadow);
+  transition: all 0.3s ease;
+  background: var(--dark);
+}
+
+.imageContainer:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px var(--shadow-hover);
+}
+
+.processedImage {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.imageOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  backdrop-filter: blur(2px);
+}
+
+.imageContainer:hover .imageOverlay {
+  opacity: 1;
+}
+
+.downloadBtn {
+  background: var(--gradient-primary);
+  color: var(--white);
+  border: none;
+  padding: 0.8rem 1.2rem;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  font-family: 'Inter', sans-serif;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.downloadBtn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+.downloadBtn:active {
+  transform: scale(1);
+}
+
+.imageName {
+  margin-top: 0.8rem;
+  font-size: 0.9rem;
+  color: var(--gray);
+  text-align: center;
+  font-weight: 500;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  .processedImages {
+    padding: 1.5rem;
+    margin: 0 0.5rem;
+  }
+  
+  .imagesHeader {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+    gap: 1rem;
+  }
+  
+  .imagesHeader h3 {
+    font-size: 1.3rem;
+  }
+  
+  .downloadAllBtn {
+    width: 100%;
+    justify-content: center;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+  }
+  
+  .imagesGrid {
+    gap: 1rem;
+  }
+  
+  .processedImage {
+    height: 150px;
+  }
+  
+  .downloadBtn {
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+  .imagesGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  
+  .processedImage {
+    height: 180px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .imagesGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  
+  .processedImage {
+    height: 200px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .processedImages {
+    padding: 2.5rem;
+  }
+  
+  .imagesHeader h3 {
+    font-size: 1.75rem;
+  }
+  
+  .imagesGrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+  
+  .processedImage {
+    height: 220px;
+  }
+  
+  .downloadBtn {
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+  }
+}
+
+/* Efectos de hover solo en desktop */
+@media (hover: hover) and (pointer: fine) {
+  .imageContainer:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px var(--shadow-hover);
+  }
+  
+  .imageContainer:hover .processedImage {
+    transform: scale(1.05);
+  }
+  
+  .downloadBtn:hover {
+    transform: scale(1.1);
+  }
+}
+
+/* Estados de carga */
+.imageItem.loading {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.imageItem.loading .imageContainer {
+  animation: pulse 1.5s infinite;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* Utilidades */
+.fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+.stagger-animation {
+  animation: fadeIn 0.6s ease-out;
+  animation-delay: calc(var(--index) * 0.1s);
+} 

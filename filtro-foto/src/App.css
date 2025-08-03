@@ -1,0 +1,286 @@
+/* Reset y estilos base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  color: #333;
+}
+
+/* Layout principal */
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--darker);
+}
+
+/* Header moderno */
+.app-header {
+  background: var(--dark);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 1.5rem 1rem;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.logo-icon {
+  font-size: 2.5rem;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.app-header h1 {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.app-header p {
+  margin: 0;
+  color: var(--gray);
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* Contenido principal */
+.app-main {
+  flex: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Secciones */
+.upload-section,
+.controls-section,
+.results-section {
+  animation: fadeIn 0.6s ease-out;
+}
+
+/* Controles mejorados */
+.controls {
+  background: var(--dark);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px var(--shadow);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.intensity-control {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.intensity-control label {
+  font-weight: 600;
+  color: var(--white);
+  min-width: 200px;
+  font-size: 1rem;
+}
+
+.intensity-control input[type="range"] {
+  flex: 1;
+  min-width: 200px;
+}
+
+.intensity-control span {
+  font-weight: 700;
+  color: var(--primary);
+  min-width: 60px;
+  text-align: center;
+  font-size: 1.1rem;
+  background: var(--gradient-subtle);
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+}
+
+/* Sección de descarga */
+.download-section {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.download-all-btn {
+  background: var(--gradient-primary);
+  color: var(--white);
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+  font-family: 'Inter', sans-serif;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.download-all-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.6);
+}
+
+.download-all-btn:active {
+  transform: translateY(0);
+}
+
+/* Footer */
+.app-footer {
+  background: var(--dark);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 1.5rem;
+  text-align: center;
+  color: var(--gray);
+  font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .app-header {
+    padding: 1rem;
+  }
+  
+  .header-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.5rem;
+  }
+  
+  .logo-icon {
+    font-size: 2rem;
+  }
+  
+  .app-header h1 {
+    font-size: 1.75rem;
+  }
+  
+  .app-header p {
+    font-size: 0.9rem;
+  }
+  
+  .app-main {
+    padding: 1rem;
+    gap: 1.5rem;
+  }
+  
+  .controls {
+    padding: 1.5rem;
+  }
+  
+  .intensity-control {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+  
+  .intensity-control label {
+    min-width: auto;
+    text-align: center;
+  }
+  
+  .intensity-control input[type="range"] {
+    min-width: auto;
+  }
+  
+  .intensity-control span {
+    min-width: auto;
+    align-self: center;
+  }
+  
+  .download-all-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 1.2rem 2rem;
+    font-size: 1.2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .app-main {
+    padding: 3rem 2rem;
+  }
+  
+  .controls {
+    padding: 2.5rem;
+  }
+  
+  .intensity-control {
+    gap: 2rem;
+  }
+}
+
+/* Efectos de hover solo en desktop */
+@media (hover: hover) and (pointer: fine) {
+  .controls:hover {
+    box-shadow: 0 6px 25px var(--shadow-hover);
+    transform: translateY(-2px);
+    transition: all 0.3s ease;
+  }
+}
+
+/* Estados de carga */
+.loading {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+/* Utilidades adicionales */
+.glass-effect {
+  background: rgba(30, 41, 59, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.shadow-sm {
+  box-shadow: 0 2px 8px var(--shadow);
+}
+
+.shadow-md {
+  box-shadow: 0 4px 20px var(--shadow);
+}
+
+.shadow-lg {
+  box-shadow: 0 8px 30px var(--shadow);
+}
