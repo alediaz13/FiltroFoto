@@ -26,28 +26,30 @@
 
 .downloadAllBtn {
   background: var(--gradient-primary);
-  color: var(--white);
+  color: white;
   border: none;
-  padding: 0.8rem 1.5rem;
-  border-radius: 50px;
-  font-size: 1rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 12px;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
-  font-family: 'Inter', sans-serif;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
 }
 
-.downloadAllBtn:hover {
+.downloadAllBtn:hover:not(:disabled) {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.6);
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
 }
 
-.downloadAllBtn:active {
-  transform: translateY(0);
+.downloadAllBtn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.downloading {
+  background: var(--gradient-subtle);
+  color: var(--gray);
 }
 
 .imagesGrid {

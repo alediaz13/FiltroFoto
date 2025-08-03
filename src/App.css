@@ -178,6 +178,18 @@ body {
   font-size: 0.9rem;
 }
 
+.footer-link {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.footer-link:hover {
+  color: var(--secondary);
+  text-decoration: underline;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .app-header {

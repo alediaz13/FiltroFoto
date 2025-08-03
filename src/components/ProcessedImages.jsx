@@ -1,20 +1,29 @@
-import { cleanupImageUrl } from '../utils/imageEffects'
 import styles from './ProcessedImages.module.css'
 
-const ProcessedImages = ({ processedImages, onDownloadAll }) => {
+const ProcessedImages = ({ processedImages, onDownloadAll, isDownloading }) => {
   const handleDownload = (imageData, index) => {
     const link = document.createElement('a')
     link.download = `filtro-foto-${index + 1}.png`
     link.href = imageData.processed
+    
+    // Agregar al DOM temporalmente para mejor compatibilidad
+    document.body.appendChild(link)
     link.click()
+    
+    // Remover del DOM
+    document.body.removeChild(link)
   }
 
   return (
     <div className={styles.processedImages}>
       <div className={styles.imagesHeader}>
         <h3>Imágenes Procesadas ({processedImages.length})</h3>
-        <button className={styles.downloadAllBtn} onClick={onDownloadAll}>
-          Descargar Todas
+        <button 
+          className={`${styles.downloadAllBtn} ${isDownloading ? styles.downloading : ''}`} 
+          onClick={onDownloadAll}
+          disabled={isDownloading}
+        >
+          {isDownloading ? '⏳ Descargando...' : '⬇️ Descargar Todas'}
         </button>
       </div>
       

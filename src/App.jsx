@@ -8,6 +8,7 @@ function App() {
   const [images, setImages] = useState([])
   const [processedImages, setProcessedImages] = useState([])
   const [gradientIntensity, setGradientIntensity] = useState(0.7)
+  const [isDownloading, setIsDownloading] = useState(false)
 
   const handleImagesUpload = (uploadedImages) => {
     setImages(uploadedImages)
@@ -32,13 +33,32 @@ function App() {
     })
   }
 
-  const handleDownloadAll = () => {
-    processedImages.forEach((item, index) => {
-      const link = document.createElement('a')
-      link.download = `filtro-foto-${index + 1}.png`
-      link.href = item.processed
-      link.click()
-    })
+  const handleDownloadAll = async () => {
+    setIsDownloading(true)
+    
+    try {
+      // En móviles, descargar una por una con delay
+      for (let i = 0; i < processedImages.length; i++) {
+        const item = processedImages[i]
+        const link = document.createElement('a')
+        link.download = `filtro-foto-${i + 1}.png`
+        link.href = item.processed
+        
+        // Agregar al DOM temporalmente
+        document.body.appendChild(link)
+        link.click()
+        
+        // Remover del DOM
+        document.body.removeChild(link)
+        
+        // Delay entre descargas para evitar bloqueos en móvil
+        if (i < processedImages.length - 1) {
+          await new Promise(resolve => setTimeout(resolve, 500))
+        }
+      }
+    } finally {
+      setIsDownloading(false)
+    }
   }
 
   return (
@@ -90,6 +110,7 @@ function App() {
             <ProcessedImages
               processedImages={processedImages}
               onDownloadAll={handleDownloadAll}
+              isDownloading={isDownloading}
             />
           </section>
         )}
@@ -103,7 +124,17 @@ function App() {
       />
 
       <footer className="app-footer">
-        <p>© {new Date().getFullYear()} Filtrale - Todos los derechos reservados</p>
+        <p>
+          Página creada por{' '}
+          <a 
+            href="https://aleke.com.ar" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="footer-link"
+          >
+            Alekey Desarrollo Web
+          </a>
+        </p>
       </footer>
     </div>
   )
