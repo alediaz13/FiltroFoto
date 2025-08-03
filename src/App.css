@@ -43,37 +43,39 @@ body {
   align-items: center;
   gap: 1rem;
   justify-content: center;
+  flex-direction: column;
+  text-align: center;
 }
 
-.logo-icon {
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-text {
   font-size: 2.5rem;
-  background: var(--gradient-primary);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-}
-
-.app-header h1 {
-  background: var(--gradient-primary);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  font-weight: 800;
+  font-family: 'Poppins', sans-serif;
   margin: 0;
-  font-size: 2rem;
-  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1;
 }
 
-.app-header p {
+.logo-main {
+  color: var(--white);
+}
+
+.logo-accent {
+  color: var(--secondary);
+}
+
+.header-subtitle p {
   margin: 0;
   color: var(--gray);
   font-size: 1rem;
   font-weight: 500;
+  opacity: 0.8;
 }
 
 /* Contenido principal */
@@ -183,20 +185,14 @@ body {
   }
   
   .header-content {
-    flex-direction: column;
-    text-align: center;
     gap: 0.5rem;
   }
   
-  .logo-icon {
+  .logo-text {
     font-size: 2rem;
   }
   
-  .app-header h1 {
-    font-size: 1.75rem;
-  }
-  
-  .app-header p {
+  .header-subtitle p {
     font-size: 0.9rem;
   }
   
@@ -249,6 +245,10 @@ body {
   .intensity-control {
     gap: 2rem;
   }
+  
+  .logo-text {
+    font-size: 3rem;
+  }
 }
 
 /* Efectos de hover solo en desktop */
@@ -258,6 +258,8 @@ body {
     transform: translateY(-2px);
     transition: all 0.3s ease;
   }
+  
+
 }
 
 /* Estados de carga */

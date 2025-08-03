@@ -45,9 +45,13 @@ function App() {
     <div className="app">
       <header className="app-header">
         <div className="header-content">
-          <div className="logo-icon">📸</div>
-          <div>
-            <h1>FiltroFoto Pro</h1>
+          <div className="logo-container">
+            <h1 className="logo-text">
+              <span className="logo-main">Filtr</span>
+              <span className="logo-accent">ale</span>
+            </h1>
+          </div>
+          <div className="header-subtitle">
             <p>Transforma tus imágenes con estilo</p>
           </div>
         </div>
@@ -99,7 +103,7 @@ function App() {
       />
 
       <footer className="app-footer">
-        <p>© {new Date().getFullYear()} FiltroFoto Pro - Todos los derechos reservados</p>
+        <p>© {new Date().getFullYear()} Filtrale - Todos los derechos reservados</p>
       </footer>
     </div>
   )
